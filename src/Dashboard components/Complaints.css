@@ -1,0 +1,61 @@
+/* Complaints.css */
+
+.container {
+  padding: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.complaintsSection,
+.suggestionsSection {
+  margin-bottom: 40px;
+}
+
+.subHeading {
+  font-size: 24px; /* Increase the font size as needed */
+  margin-bottom: 10px;
+}
+
+.complaintsList,
+.suggestionsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.complaintBox,
+.suggestionBox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+}
+
+.submitComplaintSection,
+.submitSuggestionSection {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.input,
+.textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}

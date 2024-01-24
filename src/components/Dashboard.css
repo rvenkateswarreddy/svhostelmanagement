@@ -1,0 +1,84 @@
+/* Dashboard.css */
+
+.sidebar {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  width: 200px; /* Adjust the width as needed */
+  height: 100%; /* Set a fixed height for the sidebar */
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+  transition: width 0.3s ease;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: block;
+  transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.sidebar a:hover {
+  color: #17a2b8;
+}
+
+.sidebar a.active {
+  background-color: #17a2b8; /* Background color for active state */
+  color: #fff; /* Text color for active state */
+}
+
+.sidebar a:last-child {
+  margin-top: auto; /* Push the last link to the bottom */
+}
+
+.sidebar a:last-child:hover {
+  color: #dc3545; /* Change color on hover for Logout link */
+}
+/* Dashboard.css */
+
+/* ... existing styles ... */
+
+.sidebar {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  height: 100%; /* Set the height to 100% to extend to the bottom of the page */
+  overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+/* ... existing styles ... */
+/* Dashboard.css */
+
+/* ... existing styles ... */
+
+.sidebar {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+/* Add new styles for small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Set width to 100% for small screens */
+    overflow-x: hidden; /* Hide horizontal scrollbar on small screens */
+    white-space: nowrap; /* Prevent text wrapping in the sidebar */
+  }
+
+  .navbar {
+    flex-direction: column; /* Set flex-direction to column for small screens */
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove left margin for main content on small screens */
+  }
+}
+
+/* ... existing styles ... */

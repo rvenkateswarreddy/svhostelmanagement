@@ -1,0 +1,45 @@
+/* Bill.css */
+.bill-generator-container {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #fff; /* Set your desired background color */
+}
+
+.bill-generator-form {
+  width: 500px;
+  background-color: #e0e5ec; /* Set your desired background color for the form */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #b8c4d6, -20px -20px 60px #ffffff;
+}
+
+.bill-generator-form h2 {
+  text-align: center;
+}
+
+.bill-generator-form button {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #3498db; /* Set your desired button color */
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bill-generator-form button:hover {
+  background-color: #2980b9; /* Set your desired button hover color */
+}
+
+.bill-details {
+  margin-top: 20px;
+}
+
+.bill-details p {
+  margin: 5px 0;
+}

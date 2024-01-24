@@ -1,0 +1,85 @@
+/* Signup.css */
+.neumorphic-form1 {
+  width: 500px;
+  background-color: #e0e5ec; /* Set your desired background color for the form */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #b8c4d6, -20px -20px 60px #ffffff;
+}
+.neumorphic-container1 {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 86vh;
+  background-color: #fff; /* Set your desired background color */
+}
+
+/* Signup.css */
+
+/* Signup.css */
+/* Signup.css */
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-shadow: 20px 20px 60px #b8c4d6, -20px -20px 60px #ffffff;
+}
+
+.signup-form {
+  width: 80%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.signup-form h2 {
+  text-align: center;
+}
+
+.signup-form form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.signup-form label {
+  font-weight: bold;
+}
+
+.signup-form input,
+.signup-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.signup-form button {
+  grid-column: span 2;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-form button:hover {
+  background-color: #2980b9;
+}
+
+.signup-form p {
+  text-align: center;
+}
+
+.loginbtn {
+  text-decoration: none;
+  color: red;
+}

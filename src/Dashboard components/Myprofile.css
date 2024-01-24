@@ -1,0 +1,49 @@
+/* myprofile.css */
+/* Neumorphic Card Styles */
+.neumorphic-card {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  background-color: #f5f5f5;
+  text-align: center;
+  margin-top: 30px;
+  padding: 16px;
+}
+
+.neumorphic-card:hover {
+  transform: scale(1.05);
+}
+
+/* Heading Styles */
+div.heading {
+  font-size: 40px;
+  font-weight: 500;
+  color: #0911e4; /* Set your desired color */
+  margin-bottom: 20px;
+}
+
+/* List Styles */
+.profile-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-details-list li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Bold Data Headings */
+.profile-details-list li strong {
+  font-weight: 700;
+}
+.fullname {
+  text-transform: uppercase;
+  color: red;
+  font-size: 25px;
+  font-weight: 600;
+}

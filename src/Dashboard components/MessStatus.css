@@ -1,0 +1,30 @@
+/* MessStatus.module.css */
+.status-container {
+  padding: 40px; /* Increased padding */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 20px auto; /* Center the container */
+  max-width: 800px; /* Set a larger maximum width */
+  text-align: center; /* Center the text */
+  display: flex;
+  height: 400px;
+  font-size: 35px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.open-status,
+.closed-status {
+  color: #333;
+  font-size: 40px; /* Increased font size */
+  margin-top: 10px; /* Add some space between the status and the message */
+}
+
+.open-status {
+  color: green;
+}
+
+.closed-status {
+  color: red;
+}
