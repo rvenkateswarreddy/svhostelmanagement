@@ -49,7 +49,7 @@ const Complaints = () => {
 
       // Fetch recent complaints again after submitting a new complaint
       const response = await axios.get(
-        "https://hostelmanagement-23j3.onrender.com/complaints/recent",
+        "https://hostelmanagement-23j3.onrender.com/dashboard/complaints/recent",
         {
           headers: {
             "x-token": localStorage.getItem("token"),
