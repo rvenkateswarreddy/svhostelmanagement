@@ -20,7 +20,6 @@ const AllProfiles = () => {
       .then((res) => setData(res.data.data))
       .catch((er) => console.log(er));
   }, []);
-
   const filteredUsers = data.filter((user) =>
     user.fullname.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -106,7 +105,7 @@ const AllProfiles = () => {
   const handleSaveEdit = async () => {
     try {
       const response = await axios.put(
-        `/editprofile/${editingUserId}`,
+        `https://hostelmanagement-23j3.onrender.com/editprofile/${editingUserId}`,
         editModalValues,
         {
           headers: {
@@ -116,6 +115,11 @@ const AllProfiles = () => {
       );
 
       if (response.status === 200) {
+        setData((prevData) =>
+          prevData.map((user) =>
+            user._id === editingUserId ? { ...user, ...editModalValues } : user
+          )
+        );
         console.log(`Profile with ID ${editingUserId} updated successfully`);
         setEditingUserId(null);
         setEditedUser({});
@@ -132,7 +136,9 @@ const AllProfiles = () => {
   const handleRemoveProfile = async (userId) => {
     try {
       const response = await axios.delete(
-        `/removeprofile/${encodeURIComponent(userId)}`,
+        `https://hostelmanagement-23j3.onrender.com/removeprofile/${encodeURIComponent(
+          userId
+        )}`,
         {
           headers: {
             "x-token": localStorage.getItem("token"),
@@ -141,6 +147,7 @@ const AllProfiles = () => {
       );
 
       if (response.status === 200) {
+        setData((prevData) => prevData.filter((user) => user._id !== userId));
         console.log(`Profile with ID ${userId} removed successfully`);
       } else {
         console.error("Error removing profile:", response.data.error);
@@ -181,7 +188,7 @@ const AllProfiles = () => {
         <div className="edit-modal floating">
           <div className="modal-content">
             <h2>Edit Profile</h2>
-            <form class="layout">
+            <form className="layout">
               <label>
                 Full Name:
                 <input
