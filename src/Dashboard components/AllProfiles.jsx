@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./AllProfiles.css";
 import axios from "axios";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AllProfiles = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState([]);
@@ -9,6 +10,7 @@ const AllProfiles = () => {
   const [editedUser, setEditedUser] = useState({});
   const [editModalValues, setEditModalValues] = useState({});
   const [isModalFloating, setIsModalFloating] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -17,7 +19,10 @@ const AllProfiles = () => {
           "x-token": localStorage.getItem("token"),
         },
       })
-      .then((res) => setData(res.data.data))
+      .then((res) => {
+        setData(res.data.data);
+        setIsLoading(false); // Set loading to false after data is fetched
+      })
       .catch((er) => console.log(er));
   }, []);
   const filteredUsers = data.filter((user) =>
@@ -120,16 +125,17 @@ const AllProfiles = () => {
             user._id === editingUserId ? { ...user, ...editModalValues } : user
           )
         );
-        console.log(`Profile with ID ${editingUserId} updated successfully`);
+
+        toast.success("Profile updated successfully"); // Show success message
         setEditingUserId(null);
         setEditedUser({});
         setEditModalValues({});
         setIsModalFloating(false);
       } else {
-        console.error("Error updating profile:", response.data.error);
+        toast.error("Error updating profile:", response.data.error);
       }
     } catch (error) {
-      console.error("Client error:", error.message);
+      toast.error("Client error:", error.message);
     }
   };
 
@@ -148,11 +154,12 @@ const AllProfiles = () => {
 
       if (response.status === 200) {
         setData((prevData) => prevData.filter((user) => user._id !== userId));
-        console.log(`Profile with ID ${userId} removed successfully`);
+        toast.success("Profile removed successfully"); // Show success message
       } else {
-        console.error("Error removing profile:", response.data.error);
+        toast.error("Error removing profile"); // Show error message
       }
     } catch (error) {
+      toast.error("Error removing profile"); // Show error message
       console.error("Client error:", error.message);
     }
   };
@@ -181,8 +188,12 @@ const AllProfiles = () => {
           />
         </label>
       </div>
-      {renderTable(filteredUsers, "All Profiles")}
-
+      {isLoading ? ( // Render loading indicator if isLoading is true
+        <div className="redloading">Loading...</div>
+      ) : (
+        renderTable(filteredUsers, "All Profiles")
+      )}
+      <ToastContainer />
       {/* Floating Edit Form */}
       {isModalFloating && (
         <div className="edit-modal floating">

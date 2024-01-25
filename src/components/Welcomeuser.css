@@ -1,0 +1,45 @@
+/* WelcomeUser.css */
+
+.neumorphic-container {
+  background-color: #d3d4d9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 60px;
+  height: 400px;
+}
+
+.welcome-message1 {
+  font-size: 50px;
+  color: #333;
+  margin: 0;
+}
+.welcome-message1 .usenamecolor {
+  color: rgb(237, 32, 9);
+}
+.usercontent {
+  font-size: 30px;
+}
+.quote-section {
+  color: rgb(32, 11, 220);
+  font-size: 25px;
+}
+@media only screen and (max-width: 600px) {
+  .neumorphic-container {
+    height: 350px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-bottom: 80px;
+  }
+  .welcome-message1 {
+    font-size: 35px;
+  }
+  .usercontent {
+    font-size: 20px;
+  }
+  .quote-section {
+    font-size: 20px;
+  }
+}

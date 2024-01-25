@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css"; // Import the CSS file for styling
 
 const Contact = () => {
@@ -19,6 +21,9 @@ const Contact = () => {
     e.preventDefault();
     // You can add logic here to handle form submission, e.g., send an email
     console.log("Form submitted:", formData);
+
+    // Display a success toast notification
+    toast.success("Form submitted successfully!");
   };
 
   return (
@@ -64,8 +69,9 @@ const Contact = () => {
 
       <p className="contact-gmail">
         For urgent matters, you can also contact us via email at{" "}
-        <a href="mailto:your-email@gmail.com">your-email@gmail.com</a>.
+        <a href="mailto:rvenkateswarreddy@gmail.com">your-email@gmail.com</a>.
       </p>
+      <ToastContainer />
     </div>
   );
 };

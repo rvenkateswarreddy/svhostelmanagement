@@ -18,7 +18,8 @@ import Suggestions from "./Dashboard components/Suggestions";
 import AllProfiles from "./Dashboard components/AllProfiles";
 import AdminComplaints from "./Dashboard components/AdminComplaints";
 import AdminSuggestions from "./Dashboard components/AdminSuggestions";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <>
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
         </Route>
+
         <Route
           path="/admindashboard/*"
           element={
@@ -59,6 +61,7 @@ const App = () => {
           <Route path="suggestions" element={<Suggestions />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 };

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify"; // Import toast from react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Import default styles
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const Login = () => {
   });
   const [text, settext] = useState(false);
   const [auth, setauth] = useState(false);
-  const navigate = useNavigate(); // Use the useNavigate hook for navigation
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,12 +28,10 @@ const Login = () => {
         "https://hostelmanagement-23j3.onrender.com/login",
         formData
       );
-      // console.log("Server Response:", response.data);
 
       const token = response.data.token;
       localStorage.setItem("token", token);
 
-      // Check if the logged-in user is an admin
       const isAdmin = response.data.usertype;
 
       setauth(true);
@@ -41,13 +41,16 @@ const Login = () => {
       } else {
         navigate("/dashboard");
       }
+
+      // Show success toast notification
+      toast.success("Successfully logged in!");
     } catch (error) {
-      console.error("Login failed:", error);
+      toast.error("Login failed:", error);
 
       if (error.response && error.response.status === 401) {
-        alert("Login failed. Please check your email and password.");
+        toast.error("Login failed. Please check your email and password.");
       } else {
-        alert("Login failed. An error occurred.");
+        toast.error("Login failed. An error occurred.");
       }
     } finally {
       setauth(true);
@@ -93,6 +96,7 @@ const Login = () => {
           Don't have an account? <Link to="/register">Signup here</Link>.
         </p>
       </div>
+      <ToastContainer />
     </Container>
   );
 };

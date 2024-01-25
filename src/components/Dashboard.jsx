@@ -10,6 +10,8 @@ import Suggestions from "../Dashboard components/Suggestions";
 import TimeDisplay from "../Dashboard components/TimeDisplay";
 import WelcomeMessage from "../Dashboard components/WelcomeMessage";
 import "./Dashboard.css";
+import Welcomeuser from "./Welcomeuser";
+
 import axios from "axios";
 const Dashboard = () => {
   const [data, setdata] = useState({});
@@ -25,6 +27,7 @@ const Dashboard = () => {
       })
       .then((res) =>
         setdata({
+          usertype: res.data.mydata.usertype,
           email: res.data.mydata.email,
           mobile: res.data.mydata.mobile,
           fullname: res.data.mydata.fullname,
@@ -36,6 +39,7 @@ const Dashboard = () => {
           admissionNumber: res.data.mydata.admissionNumber,
         })
       )
+
       .catch((er) => console.log(er));
   }, []);
 
@@ -44,8 +48,8 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  const handleSidebarToggle = () => {
-    setSidebarActive(!sidebarActive);
+  const adminhandle = () => {
+    navigate("/dashboard");
   };
 
   return (
@@ -56,7 +60,9 @@ const Dashboard = () => {
         variant="dark"
         className="justify-content-between dashboardnavbar"
       >
-        <Navbar.Brand className="dashboard">USERDASHBOARD</Navbar.Brand>
+        <Navbar.Brand className="dashboard" onClick={adminhandle}>
+          USERDASHBOARD
+        </Navbar.Brand>
         <Row>
           <Col>
             <TimeDisplay />
@@ -102,7 +108,6 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/myprofile"
                 className="nav-link"
-                activeClassName="active"
                 onClick={() => setSidebarActive(false)}
               >
                 My Profile
@@ -112,7 +117,6 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/complaints"
                 className="nav-link"
-                activeClassName="active"
                 onClick={() => setSidebarActive(false)}
               >
                 Complaints
@@ -122,7 +126,6 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/billgenerator"
                 className="nav-link"
-                activeClassName="active"
                 onClick={() => setSidebarActive(false)}
               >
                 Bill Generator
@@ -132,7 +135,6 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/messstatus"
                 className="nav-link"
-                activeClassName="active"
                 onClick={() => setSidebarActive(false)}
               >
                 MessStatus
@@ -142,7 +144,6 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/suggestions"
                 className="nav-link"
-                activeClassName="active"
                 onClick={() => setSidebarActive(false)}
               >
                 Suggestions
@@ -157,6 +158,15 @@ const Dashboard = () => {
         {/* Main Content */}
         <Col md={9} className="main-content">
           <Routes>
+            <Route
+              path="/"
+              element={
+                <Welcomeuser
+                  username={data.fullname}
+                  usertype={data.usertype}
+                />
+              }
+            />
             <Route path="myprofile" element={<Myprofile data={data} />} />
             <Route path="complaints" element={<Complaints />} />
             <Route path="billgenerator" element={<BillGenerator />} />

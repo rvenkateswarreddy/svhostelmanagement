@@ -63,6 +63,9 @@
   overflow-y: auto;
   transition: width 0.3s ease;
 }
+.dashboard {
+  cursor: pointer;
+}
 
 /* Add new styles for small screens */
 @media (max-width: 768px) {

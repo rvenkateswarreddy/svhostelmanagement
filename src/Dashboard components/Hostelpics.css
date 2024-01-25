@@ -4,6 +4,7 @@
   max-width: 1300px;
   margin: 0 auto;
   margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .image-row {
@@ -29,7 +30,7 @@
 /* Optional: Add styles for responsiveness */
 @media only screen and (max-width: 600px) {
   .image-row img {
-    width: 100%;
+    width: 220px;
     height: auto;
     margin-right: 5px;
   }

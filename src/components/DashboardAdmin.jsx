@@ -10,6 +10,7 @@ import MessStatus from "../Dashboard components/MessStatus";
 import AdminSuggestions from "../Dashboard components/AdminSuggestions";
 import TimeDisplay from "../Dashboard components/TimeDisplay";
 import WelcomeMessage from "../Dashboard components/WelcomeMessage";
+import Welcomeuser from "./Welcomeuser";
 import "./Dashboard.css";
 import axios from "axios";
 
@@ -38,6 +39,7 @@ const DashboardAdmin = () => {
       })
       .then((res) =>
         setdata1({
+          usertype: res.data.mydata.usertype,
           email: res.data.mydata.email,
           mobile: res.data.mydata.mobile,
           fullname: res.data.mydata.fullname,
@@ -58,6 +60,9 @@ const DashboardAdmin = () => {
     // Toggle body overflow based on dropdown state
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   };
+  const adminhandle = () => {
+    navigate("/admindashboard");
+  };
 
   return (
     <Container fluid className="dashboard-container">
@@ -67,13 +72,12 @@ const DashboardAdmin = () => {
         variant="dark"
         className="justify-content-between dashboardnavbar"
       >
-        <Navbar.Brand className="dashboard">ADMINDASHBOARD</Navbar.Brand>
+        <Navbar.Brand className="dashboard" onClick={adminhandle}>
+          ADMINDASHBOARD
+        </Navbar.Brand>
         <Row>
           <Col>
             <TimeDisplay />
-          </Col>
-          <Col>
-            <WelcomeMessage username={data1.fullname} />
           </Col>
         </Row>
         <Nav className="mr-auto">
@@ -149,8 +153,18 @@ const DashboardAdmin = () => {
         </Col>
 
         {/* Main Content */}
+
         <Col md={9} className="main-content">
           <Routes>
+            <Route
+              path="/"
+              element={
+                <Welcomeuser
+                  username={data1.fullname}
+                  usertype={data1.usertype}
+                />
+              }
+            />
             <Route path="allprofiles" element={<AllProfiles data={data} />} />
             <Route path="admincomplaints" element={<AdminComplaints />} />
             <Route path="billgenerator" element={<BillGenerator />} />

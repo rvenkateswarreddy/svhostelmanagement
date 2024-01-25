@@ -3,7 +3,14 @@
   border-radius: 15px; /* Rounded corners */
   padding: 20px;
   margin: 20px;
+  min-height: 500px;
   box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff; /* Box shadow for neumorphic effect */
 }
 
 /* Add more styling as needed */
+@media only screen and (max-width: 600px) {
+  .neumorphic-container {
+    min-height: 600px;
+    margin-bottom: 20px;
+  }
+}

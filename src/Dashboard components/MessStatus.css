@@ -17,7 +17,7 @@
 .open-status,
 .closed-status {
   color: #333;
-  font-size: 40px; /* Increased font size */
+  font-size: 35px; /* Increased font size */
   margin-top: 10px; /* Add some space between the status and the message */
 }
 
@@ -27,4 +27,21 @@
 
 .closed-status {
   color: red;
+}
+@media only screen and (max-width: 600px) {
+  .status-container {
+    max-width: 400px;
+    height: 300px;
+    font-size: 20px;
+  }
+  .open-status,
+  .closed-status {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .status-container {
+    margin-bottom: 60px;
+    height: 300px;
+  }
 }

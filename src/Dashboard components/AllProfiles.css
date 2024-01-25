@@ -32,10 +32,10 @@ body {
   margin-left: 8px;
   margin-bottom: 30px;
   overflow-x: auto; /* Enable horizontal scrolling */
-  width: 100%; /* Set to 100% to take up the full width */
+  width: 110%; /* Set to 100% to take up the full width */
 }
 
-/* Neumorphic Table */
+/* Normal Table Styles */
 .neumorphic-table {
   width: 100%;
   border-collapse: collapse;
@@ -45,19 +45,18 @@ body {
 .neumorphic-table th {
   padding: 12px;
   text-align: left;
+  background-color: #d3d4d9; /* Background color for table header */
+  border: 1px solid #000; /* Black border for table header */
 }
 
 .neumorphic-table td {
   padding: 12px;
-}
-
-.neumorphic-table tr:last-child td {
-  border-bottom: none;
+  border: 1px solid #000; /* Black border for table cells */
 }
 
 /* Buttons */
 .table-container .btn {
-  padding: 12px 18px;
+  padding: 6px;
   font-size: 16px;
   margin: 5px;
   background-color: #007bff;
@@ -126,55 +125,6 @@ body {
   flex: 1; /* Make buttons take equal width */
 }
 
-/* Neumorphic Table with Black Borders */
-.neumorphic-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  border: 1px solid #000; /* Black border for the entire table */
-  border-radius: 10px; /* Adjust border-radius for rounded corners */
-  overflow: hidden; /* Hide overflow to prevent double borders */
-}
-
-.neumorphic-table th,
-.neumorphic-table td {
-  padding: 12px;
-  border: 1px solid #000; /* Black border for table cells */
-}
-
-.neumorphic-table th {
-  background-color: #d3d4d9;
-}
-
-.neumorphic-table tr:last-child td {
-  border-bottom: none;
-}
-
-/* Neumorphic Table with Outline Borders */
-.neumorphic-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  border: 1px solid #000; /* Black border for the entire table */
-  border-radius: 10px; /* Adjust border-radius for rounded corners */
-  overflow: hidden; /* Hide overflow to prevent double borders */
-}
-
-.neumorphic-table th,
-.neumorphic-table td {
-  padding: 12px;
-  border: 1px solid #000; /* Black border for table cells */
-  outline: 1px solid #fff; /* White outline for neumorphic effect */
-}
-
-.neumorphic-table th {
-  background-color: #d3d4d9;
-}
-
-.neumorphic-table tr:last-child td {
-  border-bottom: none;
-}
-
 /* Responsive Styling */
 @media only screen and (max-width: 600px) {
   /* Table Styling for Mobile */
@@ -185,6 +135,52 @@ body {
   }
   .table-container {
     margin-left: 5px;
+  }
+
+  /* Floating Edit Modal for Mobile */
+  .floating {
+    width: 90%;
+  }
+
+  /* Edit Form Layout for Mobile */
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Modal Buttons for Mobile */
+  .modal-buttons {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  /* Search Bar for Mobile */
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar label input {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.redloading {
+  color: red;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+/* Responsive Styling */
+@media only screen and (max-width: 600px) {
+  /* Table Styling for Mobile */
+  .neumorphic-table th,
+  .neumorphic-table td {
+    padding: 8px !important;
+    font-size: 14px !important;
+  }
+  .table-container {
+    margin-left: 0; /* Adjust margin for smaller devices */
+    width: 100%; /* Set to 100% to take up the full width */
   }
 
   /* Floating Edit Modal for Mobile */
